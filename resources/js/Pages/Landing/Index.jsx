@@ -4,6 +4,17 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 export default function Landing({ teamMembers }) {
+	const scrollToSection = (e, sectionId) => {
+		e.preventDefault();
+		const element = document.getElementById(sectionId);
+		if (element) {
+			element.scrollIntoView({
+				behavior: 'smooth',
+				block: 'start'
+			});
+		}
+	};
+
 	return (
 		<div className="min-h-screen bg-gray-50 flex flex-col">
 			<Head title="Home | EEPROM" />
@@ -20,15 +31,15 @@ export default function Landing({ teamMembers }) {
 							<span className="ml-2 text-xl font-semibold text-gray-800">EEPROM</span>
 						</div>
 						<div className="hidden md:flex items-center space-x-4">
-							<a href="#" className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Home</a>
-							<a href="#visi-misi" className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Visi & Misi</a>
-							<a href="#team" className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Team</a>
-							<a href="#achievements" className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Achievements</a>
-							<a href="#gallery" className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Gallery</a>
+							<a href="#" onClick={(e) => scrollToSection(e, 'hero')} className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Home</a>
+							<a href="#visi-misi" onClick={(e) => scrollToSection(e, 'visi-misi')} className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Visi & Misi</a>
+							<a href="#team" onClick={(e) => scrollToSection(e, 'team')} className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Team</a>
+							<a href="#achievements" onClick={(e) => scrollToSection(e, 'achievements')} className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Achievements</a>
+							<a href="#gallery" onClick={(e) => scrollToSection(e, 'gallery')} className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Gallery</a>
 						</div>
 						{/* Mobile menu button */}
 						<div className="md:hidden flex items-center">
-							<button className="text-gray-600 hover:text-blue-600">
+							<button className="text-gray-600 hover:text-blue-600 transition-colors duration-200">
 								<svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
 								</svg>
@@ -41,7 +52,7 @@ export default function Landing({ teamMembers }) {
 			{/* Main Content */}
 			<div className="flex-grow">
 				{/* Hero Section */}
-				<div className="relative overflow-hidden">
+				<div id="hero" className="relative overflow-hidden">
 					<div className="max-w-7xl mx-auto">
 						<div className="relative z-10 pb-8 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
 							<main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
@@ -281,11 +292,11 @@ export default function Landing({ teamMembers }) {
 						<div>
 							<h3 className="text-lg font-semibold mb-4">Quick Links</h3>
 							<ul className="space-y-2">
-								<li><a href="#" className="text-gray-300 hover:text-white">Home</a></li>
-								<li><a href="#visi-misi" className="text-gray-300 hover:text-white">Visi & Misi</a></li>
-								<li><a href="#team" className="text-gray-300 hover:text-white">Team</a></li>
-								<li><a href="#achievements" className="text-gray-300 hover:text-white">Achievements</a></li>
-								<li><a href="#gallery" className="text-gray-300 hover:text-white">Gallery</a></li>
+								<li><a href="#" onClick={(e) => scrollToSection(e, 'hero')} className="text-gray-300 hover:text-white transition-colors duration-200">Home</a></li>
+								<li><a href="#visi-misi" onClick={(e) => scrollToSection(e, 'visi-misi')} className="text-gray-300 hover:text-white transition-colors duration-200">Visi & Misi</a></li>
+								<li><a href="#team" onClick={(e) => scrollToSection(e, 'team')} className="text-gray-300 hover:text-white transition-colors duration-200">Team</a></li>
+								<li><a href="#achievements" onClick={(e) => scrollToSection(e, 'achievements')} className="text-gray-300 hover:text-white transition-colors duration-200">Achievements</a></li>
+								<li><a href="#gallery" onClick={(e) => scrollToSection(e, 'gallery')} className="text-gray-300 hover:text-white transition-colors duration-200">Gallery</a></li>
 							</ul>
 						</div>
 						<div>
