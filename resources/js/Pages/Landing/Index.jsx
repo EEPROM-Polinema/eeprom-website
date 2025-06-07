@@ -51,7 +51,7 @@ export default function Landing({ teamMembers }) {
 										<span className="block text-blue-600">EEPROM Polinema</span>
 									</h1>
 									<p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+									sebuah komunitas robothobbies yang ada di kampus Politeknik Negeri Malang, Komunitas ini berdiri pada tanggal 1 Juni 2011 yang dirintis oleh mahasiswa Politeknik Negeri Malang khususnya mahasiswa Jurusan Elektro dan Jurusan Teknologi Informasi.
 									</p>
 									<div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
 										<div className="rounded-md shadow">
