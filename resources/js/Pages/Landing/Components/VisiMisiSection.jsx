@@ -16,18 +16,18 @@ export default function VisiMisiSection() {
 				<div className="mt-10">
 					<div className="grid grid-cols-1 gap-8 md:grid-cols-2">
 						{/* Visi */}
-						<div className="bg-blue-600 rounded-lg shadow-lg p-8">
-							<h3 className="text-2xl font-bold text-white mb-4">Our Vision</h3>
-							<p className="text-white">
+						<div className="bg-white border-2 border-blue-600 rounded-lg shadow-lg p-8">
+							<h3 className="text-2xl font-bold text-blue-600 mb-4">Our Vision</h3>
+							<p className="text-gray-600">
 								Menjadi komunitas robotika yang unggul dan terdepan dalam pengembangan teknologi robotika di Indonesia, 
 								serta menghasilkan talenta-talenta yang berkualitas dalam bidang robotika dan teknologi.
 							</p>
 						</div>
 
 						{/* Misi */}
-						<div className="bg-blue-600 rounded-lg shadow-lg p-8">
-							<h3 className="text-2xl font-bold text-white mb-4">Our Mission</h3>
-							<ol className="list-disc list-inside text-white space-y-2">
+						<div className="bg-white border-2 border-blue-600 rounded-lg shadow-lg p-8">
+							<h3 className="text-2xl font-bold text-blue-600 mb-4">Our Mission</h3>
+							<ol className="list-disc list-inside text-gray-600 space-y-2">
 								<li>Mengembangkan kompetensi anggota dalam bidang robotika dan teknologi</li>
 								<li>Menciptakan lingkungan belajar yang kolaboratif dan inovatif</li>
 								<li>Berpartisipasi aktif dalam kompetisi robotika nasional dan internasional</li>
