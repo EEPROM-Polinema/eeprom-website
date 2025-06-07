@@ -1,5 +1,5 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import { Head, useForm } from '@inertiajs/react';
+import { Head, useForm, Link } from '@inertiajs/react';
 import { useState } from 'react';
 
 export default function Edit({ teamMember }) {
@@ -144,7 +144,13 @@ export default function Edit({ teamMember }) {
                                     </label>
                                 </div>
 
-                                <div className="flex justify-end">
+                                <div className="flex justify-end space-x-4">
+                                    <Link
+                                        href={route('team-members.index')}
+                                        className="px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700"
+                                    >
+                                        Cancel
+                                    </Link>
                                     <button
                                         type="submit"
                                         disabled={processing}
