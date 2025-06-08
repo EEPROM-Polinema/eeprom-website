@@ -31,7 +31,7 @@ export default function Dashboard({ stats }) {
                                                 Active Members
                                             </dt>
                                             <dd className="text-3xl font-semibold text-gray-900 dark:text-white">
-                                                {stats.total_members}
+                                                {stats.active_members}
                                             </dd>
                                         </dl>
                                     </div>
@@ -41,6 +41,36 @@ export default function Dashboard({ stats }) {
                                 <div className="text-sm">
                                     <Link href={route('team-members.index')} className="font-medium text-blue-600 hover:text-blue-500 dark:text-blue-400">
                                         View all members
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Total Achievements Card */}
+                        <div className="overflow-hidden rounded-lg bg-white shadow dark:bg-gray-800">
+                            <div className="p-5">
+                                <div className="flex items-center">
+                                    <div className="flex-shrink-0">
+                                        <svg className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                                        </svg>
+                                    </div>
+                                    <div className="ml-5 w-0 flex-1">
+                                        <dl>
+                                            <dt className="truncate text-sm font-medium text-gray-500 dark:text-gray-400">
+                                                Published Achievements
+                                            </dt>
+                                            <dd className="text-3xl font-semibold text-gray-900 dark:text-white">
+                                                {stats.published_achievements}
+                                            </dd>
+                                        </dl>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="bg-gray-50 px-5 py-3 dark:bg-gray-700">
+                                <div className="text-sm">
+                                    <Link href={route('achievements.index')} className="font-medium text-blue-600 hover:text-blue-500 dark:text-blue-400">
+                                        View all achievements
                                     </Link>
                                 </div>
                             </div>
@@ -85,6 +115,58 @@ export default function Dashboard({ stats }) {
                                                     <div>
                                                         <Link
                                                             href={route('team-members.edit', member.id)}
+                                                            className="inline-flex items-center rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 dark:bg-gray-700 dark:text-white dark:ring-gray-600 dark:hover:bg-gray-600"
+                                                        >
+                                                            View
+                                                        </Link>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Latest Achievements List */}
+                    <div className="mt-8">
+                        <div className="overflow-hidden rounded-lg bg-white shadow dark:bg-gray-800">
+                            <div className="p-6">
+                                <h3 className="text-lg font-medium leading-6 text-gray-900 dark:text-white">
+                                    Recent Achievements
+                                </h3>
+                                <div className="mt-6 flow-root">
+                                    <ul role="list" className="-my-5 divide-y divide-gray-200 dark:divide-gray-700">
+                                        {stats.latest_achievements.map((achievement) => (
+                                            <li key={achievement.id} className="py-4">
+                                                <div className="flex items-center space-x-4">
+                                                    <div className="flex-shrink-0">
+                                                        {achievement.image_path ? (
+                                                            <img
+                                                                className="h-10 w-10 rounded-lg object-cover"
+                                                                src={`/storage/${achievement.image_path}`}
+                                                                alt={achievement.title}
+                                                            />
+                                                        ) : (
+                                                            <div className="h-10 w-10 rounded-lg bg-blue-100 flex items-center justify-center">
+                                                                <span className="text-blue-600 font-medium">
+                                                                    {achievement.title.charAt(0)}
+                                                                </span>
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                    <div className="min-w-0 flex-1">
+                                                        <p className="truncate text-sm font-medium text-gray-900 dark:text-white">
+                                                            {achievement.title}
+                                                        </p>
+                                                        <p className="truncate text-sm text-gray-500 dark:text-gray-400">
+                                                            {new Date(achievement.achievement_date).toLocaleDateString()}
+                                                        </p>
+                                                    </div>
+                                                    <div>
+                                                        <Link
+                                                            href={route('achievements.edit', achievement.id)}
                                                             className="inline-flex items-center rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 dark:bg-gray-700 dark:text-white dark:ring-gray-600 dark:hover:bg-gray-600"
                                                         >
                                                             View
