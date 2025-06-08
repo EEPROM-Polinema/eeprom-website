@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-export default function Landing({ teamMembers }) {
+export default function Landing({ teamMembers, achievements }) {
 	const scrollToSection = (e, sectionId) => {
 		e.preventDefault();
 		const element = document.getElementById(sectionId);
@@ -292,13 +292,36 @@ export default function Landing({ teamMembers }) {
 										
 						<div className="mt-10">
 							<div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-								{[1, 2, 3].map((achievement) => (
-									<div key={achievement} className="bg-white rounded-lg shadow-lg p-6">
-										<div className="text-blue-600 text-4xl font-bold mb-4">#{achievement}</div>
-										<h3 className="text-lg font-medium text-gray-900">Achievement Title</h3>
-										<p className="mt-2 text-gray-500">
-											Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt.
-										</p>
+								{achievements?.map((achievement) => (
+									<div key={achievement.id} className="bg-white rounded-lg shadow-lg overflow-hidden">
+										{achievement.image_path && (
+											<div className="h-48 w-full">
+												<img
+													src={`/storage/${achievement.image_path}`}
+													alt={achievement.title}
+													className="w-full h-full object-cover"
+												/>
+											</div>
+										)}
+										<div className="p-6">
+											<div className="text-blue-600 text-sm font-semibold mb-2">
+												{new Date(achievement.achievement_date).toLocaleDateString()}
+											</div>
+											<h3 className="text-lg font-medium text-gray-900 mb-2">{achievement.title}</h3>
+											{achievement.competition_name && (
+												<p className="text-sm text-gray-600 mb-2">
+													Competition: {achievement.competition_name}
+												</p>
+											)}
+											{achievement.position && (
+												<p className="text-sm text-gray-600 mb-2">
+													Position: {achievement.position}
+												</p>
+											)}
+											<p className="text-gray-500">
+												{achievement.description}
+											</p>
+										</div>
 									</div>
 								))}
 							</div>
