@@ -72,7 +72,7 @@ export default function Index({ auth, achievements }) {
                                                 <td colSpan="6" className="px-6 py-4">
                                                     <div className="text-center py-12">
                                                         <svg className="mx-auto h-12 w-12 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
                                                         </svg>
                                                         <h3 className="mt-2 text-lg font-medium text-gray-900 dark:text-gray-100">No achievements found</h3>
                                                         <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">Try adjusting your search or add a new achievement.</p>

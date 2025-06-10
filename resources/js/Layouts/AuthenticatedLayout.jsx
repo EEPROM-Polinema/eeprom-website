@@ -170,8 +170,8 @@ export default function AuthenticatedLayout({ header, children }) {
             <div className="flex">
                 {/* Sidebar */}
                 <div className="hidden md:flex md:w-64 md:flex-col">
-                    <div className="flex min-h-0 flex-1 flex-col border-r border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800">
-                        <div className="flex flex-1 flex-col overflow-y-auto pt-5 pb-4">
+                    <div className="flex h-screen flex-col border-r border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800">
+                        <div className="flex flex-col overflow-y-auto pt-5 pb-4">
                             <nav className="mt-5 flex-1 flex flex-col space-y-1 px-2">
                                 <NavLink
                                     href={route('dashboard')}

@@ -5,7 +5,7 @@ export default function Dashboard({ stats }) {
     return (
         <AuthenticatedLayout
             header={
-                <h2 className="text-xl font-semibold leading-tight text-gray-800 dark:text-blue-600">
+                <h2 className="text-xl font-semibold leading-tight text-gray-800 dark:text-white">
                     Dashboard
                 </h2>
             }
