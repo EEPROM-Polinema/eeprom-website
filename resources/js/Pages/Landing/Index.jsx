@@ -293,7 +293,7 @@ export default function Landing({ teamMembers, achievements, galleries }) {
 								Meet Our Amazing Team
 							</p>
 							<p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-								Our dedicated team of robotics enthusiasts and experts who make EEPROM Polinema what it is today.
+							Dedicated team of robotics enthusiasts and experts who make EEPROM Polinema what it is today. Our active members bring passion, skills, and innovation to drive success in every competition and project.
 							</p>
 						</div>
 
@@ -427,6 +427,9 @@ export default function Landing({ teamMembers, achievements, galleries }) {
 							<p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
 								Our Success Stories
 							</p>
+							<p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+							From regional champions to national innovators, our team has consistently pushed the boundaries of robotics excellence.
+							</p>
 						</div>
 										
 						<div className="mt-10">
@@ -500,6 +503,9 @@ export default function Landing({ teamMembers, achievements, galleries }) {
 							<h2 className="text-base text-blue-600 font-semibold tracking-wide uppercase">Gallery</h2>
 							<p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
 								Our Moments
+							</p>
+							<p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+								A visual journey of our milestones, from brainstorming sessions to standing proud on the competition stage.
 							</p>
 						</div>
 

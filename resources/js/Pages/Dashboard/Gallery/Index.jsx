@@ -18,12 +18,12 @@ export default function Index({ auth, galleries }) {
             header={
                 <div className="flex justify-between items-center">
                     <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100">
-                        Gallery Management
+                        Gallery
                     </h2>
                 </div>
             }
         >
-            <Head title="Gallery Management" />
+            <Head title="Gallery" />
 
             <div className="py-8">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
