@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\TeamMember;
 use App\Models\Achievement;
+use App\Models\Gallery;
 use Inertia\Inertia;
 
 class DashboardController extends Controller
@@ -17,6 +18,7 @@ class DashboardController extends Controller
             'total_achievements' => Achievement::count(),
             'published_achievements' => Achievement::where('is_published', true)->count(),
             'latest_achievements' => Achievement::latest()->take(5)->get(),
+            'total_gallery_images' => Gallery::count(),
         ];
 
         return Inertia::render('Dashboard/Index', [

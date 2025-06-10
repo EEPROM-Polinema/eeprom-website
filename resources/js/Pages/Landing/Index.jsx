@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-export default function Landing({ teamMembers, achievements }) {
+export default function Landing({ teamMembers, achievements, galleries }) {
 	const scrollToSection = (e, sectionId) => {
 		e.preventDefault();
 		const element = document.getElementById(sectionId);
@@ -16,8 +16,47 @@ export default function Landing({ teamMembers, achievements }) {
 	};
 
 	return (
-		<div className="min-h-screen bg-gray-50 flex flex-col">
+		<div className="min-h-screen bg-gray-50 flex flex-col overflow-hidden">
 			<Head title="Home | EEPROM" />
+			{/* Technical Background Pattern */}
+			<div className="fixed inset-0 pointer-events-none opacity-5">
+				<div className="absolute inset-0" style={{
+					backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+					backgroundSize: '60px 60px'
+				}}></div>
+				{/* Floating Technical Icons */}
+				<div className="absolute top-1/4 left-10 w-16 h-16 opacity-10 animate-float">
+					<img src="/arduino-svgrepo-com.svg" alt="Arduino" className="w-full h-full" />
+				</div>
+				<div className="absolute top-1/3 right-20 w-20 h-20 opacity-10 animate-float-delayed">
+					<img src="/electronics-chip-svgrepo-com.svg" alt="Electronics" className="w-full h-full" />
+				</div>
+				<div className="absolute bottom-1/4 left-1/4 w-14 h-14 opacity-10 animate-float">
+					<img src="/programming-svgrepo-com.svg" alt="Programming" className="w-full h-full" />
+				</div>
+				<div className="absolute bottom-1/3 right-1/4 w-16 h-16 opacity-10 animate-float-delayed">
+					<img src="/cog-svgrepo-com.svg" alt="Cog" className="w-full h-full" />
+				</div>
+			</div>
+			{/* Add animation styles */}
+			<style jsx global>{`
+				@keyframes float {
+					0% { transform: translateY(0px); }
+					50% { transform: translateY(-20px); }
+					100% { transform: translateY(0px); }
+				}
+				@keyframes float-delayed {
+					0% { transform: translateY(-10px); }
+					50% { transform: translateY(10px); }
+					100% { transform: translateY(-10px); }
+				}
+				.animate-float {
+					animation: float 6s ease-in-out infinite;
+				}
+				.animate-float-delayed {
+					animation: float-delayed 6s ease-in-out infinite;
+				}
+			`}</style>
 			{/* Navbar */}
 			<nav className="bg-white shadow-lg">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -59,16 +98,30 @@ export default function Landing({ teamMembers, achievements }) {
 						<div className="relative z-10 pb-8 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
 							<main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
 								<div className="sm:text-center lg:text-left">
+									{/* Circuit Board Decoration */}
+									<div className="absolute -left-4 top-0 w-24 h-24 opacity-20">
+										<svg viewBox="0 0 100 100" className="w-full h-full text-blue-600">
+											<path d="M10,50 L90,50 M50,10 L50,90" stroke="currentColor" strokeWidth="2" strokeDasharray="4 4"/>
+											<circle cx="50" cy="50" r="5" fill="currentColor"/>
+											<circle cx="10" cy="50" r="3" fill="currentColor"/>
+											<circle cx="90" cy="50" r="3" fill="currentColor"/>
+											<circle cx="50" cy="10" r="3" fill="currentColor"/>
+											<circle cx="50" cy="90" r="3" fill="currentColor"/>
+										</svg>
+									</div>
 									<h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
 										<span className="block">Welcome to</span>
-										<span className="block text-blue-600">EEPROM Polinema</span>
+										<span className="block text-blue-600 relative">
+											EEPROM Polinema
+										</span>
 									</h1>
 									<p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
 										sebuah komunitas robothobbies yang ada di kampus Politeknik Negeri Malang, Komunitas ini berdiri pada tanggal 1 Juni 2011 yang dirintis oleh mahasiswa Politeknik Negeri Malang khususnya mahasiswa Jurusan Elektro dan Jurusan Teknologi Informasi.
 									</p>
 									<div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-										<div className="rounded-md shadow">
-											<a href="/register" className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10">
+										<div className="rounded-md shadow relative group">
+											<div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
+											<a href="/register" className="relative w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10">
 												Join Us
 											</a>
 										</div>
@@ -78,9 +131,22 @@ export default function Landing({ teamMembers, achievements }) {
 						</div>
 					</div>
 					<div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-						<div className="h-56 w-full sm:h-72 md:h-96 lg:w-full lg:h-full flex items-center justify-center">
+						<div className="h-56 w-full sm:h-72 md:h-96 lg:w-full lg:h-full flex items-center justify-center relative">
+							{/* Animated Circuit Lines */}
+							<div className="absolute inset-0 overflow-hidden">
+								<div className="absolute top-0 left-0 w-full h-full">
+									<svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+										<path d="M0,50 L100,50" stroke="rgba(59, 130, 246, 0.1)" strokeWidth="0.5" strokeDasharray="2 2">
+											<animate attributeName="stroke-dashoffset" from="0" to="4" dur="1s" repeatCount="indefinite"/>
+										</path>
+										<path d="M50,0 L50,100" stroke="rgba(59, 130, 246, 0.1)" strokeWidth="0.5" strokeDasharray="2 2">
+											<animate attributeName="stroke-dashoffset" from="0" to="4" dur="1s" repeatCount="indefinite"/>
+										</path>
+									</svg>
+								</div>
+							</div>
 							<img
-								className="h-[450px] w-[450px] object-contain"
+								className="h-[450px] w-[450px] object-contain relative z-10"
 								src="/Logo EEPROM nobg.png"
 								alt="EEPROM Logo"
 							/>
@@ -89,8 +155,15 @@ export default function Landing({ teamMembers, achievements }) {
 				</div>
 
 				{/* Visi Misi Section */}
-				<div id="visi-misi" className="py-12">
+				<div id="visi-misi" className="py-12 relative">
 					<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+						{/* Technical Icons */}
+						<div className="absolute right-0 top-10 w-24 h-24 opacity-10">
+							<img src="/arduino-svgrepo-com.svg" alt="Arduino" className="w-full h-full" />
+						</div>
+						<div className="absolute left-0 bottom-10 w-24 h-24 opacity-10">
+							<img src="/electronics-chip-svgrepo-com.svg" alt="Electronics" className="w-full h-full" />
+						</div>
 						<div className="lg:text-center relative">
 							<div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-blue-600 to-red-600 rounded-full"></div>
 							<h2 className="text-base text-blue-600 font-semibold tracking-wide uppercase">Who We Are</h2>
@@ -105,24 +178,49 @@ export default function Landing({ teamMembers, achievements }) {
 						<div className="mt-10">
 							<div className="grid grid-cols-1 gap-8 md:grid-cols-2">
 								{/* Visi */}
-								<div className="bg-white border-2 border-blue-600 rounded-lg shadow-lg p-8">
-									<h3 className="text-2xl font-bold text-blue-600 mb-4">Our Vision</h3>
-									<p className="text-gray-600">
-										Menjadi komunitas robotika yang unggul dan terdepan dalam pengembangan teknologi robotika di Indonesia, 
-										serta menghasilkan talenta-talenta yang berkualitas dalam bidang robotika dan teknologi.
-									</p>
+								<div className="bg-white border-2 border-blue-600 rounded-lg shadow-lg p-8 relative group hover:shadow-xl transition-all duration-300">
+									<div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg blur opacity-0 group-hover:opacity-25 transition duration-1000 group-hover:duration-200"></div>
+									<div className="relative">
+										<div className="absolute -top-4 -right-4 w-8 h-8 text-blue-600">
+											<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+												<path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+											</svg>
+										</div>
+										<h3 className="text-2xl font-bold text-blue-600 mb-4">Our Vision</h3>
+										<p className="text-gray-600">
+											Menjadi komunitas robotika yang unggul dan terdepan dalam pengembangan teknologi robotika di Indonesia, 
+											serta menghasilkan talenta-talenta yang berkualitas dalam bidang robotika dan teknologi.
+										</p>
+									</div>
 								</div>
 			
 								{/* Misi */}
-								<div className="bg-white border-2 border-blue-600 rounded-lg shadow-lg p-8">
-									<h3 className="text-2xl font-bold text-blue-600 mb-4">Our Mission</h3>
-									<ol className="list-disc list-inside text-gray-600 space-y-2">
-										<li>Mengembangkan kompetensi anggota dalam bidang robotika dan teknologi</li>
-										<li>Menciptakan lingkungan belajar yang kolaboratif dan inovatif</li>
-										<li>Berpartisipasi aktif dalam kompetisi robotika nasional dan internasional</li>
-										<li>Mengembangkan proyek-proyek robotika yang bermanfaat bagi masyarakat</li>
-										<li>Membangun jaringan dengan komunitas robotika lainnya</li>
-									</ol>
+								<div className="bg-white border-2 border-blue-600 rounded-lg shadow-lg p-8 relative group hover:shadow-xl transition-all duration-300">
+									<div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg blur opacity-0 group-hover:opacity-25 transition duration-1000 group-hover:duration-200"></div>
+									<div className="relative">
+										<div className="absolute -top-4 -right-4 w-8 h-8 text-blue-600">
+											<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+												<path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+											</svg>
+										</div>
+										<h3 className="text-2xl font-bold text-blue-600 mb-4">Our Mission</h3>
+										<ol className="list-none space-y-2">
+											{[
+												"Mengembangkan kompetensi anggota dalam bidang robotika dan teknologi",
+												"Menciptakan lingkungan belajar yang kolaboratif dan inovatif",
+												"Berpartisipasi aktif dalam kompetisi robotika nasional dan internasional",
+												"Mengembangkan proyek-proyek robotika yang bermanfaat bagi masyarakat",
+												"Membangun jaringan dengan komunitas robotika lainnya"
+											].map((item, index) => (
+												<li key={index} className="flex items-start">
+													<span className="flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full bg-blue-100 text-blue-600 mr-2">
+														{index + 1}
+													</span>
+													<span className="text-gray-600">{item}</span>
+												</li>
+											))}
+										</ol>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -179,10 +277,17 @@ export default function Landing({ teamMembers, achievements }) {
 				</div>
 
 				{/* Team Section */}
-				<div id="team" className="py-12">
+				<div id="team" className="py-12 relative">
 					<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-					<div className="lg:text-center relative">
-						<div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-blue-600 to-red-600 rounded-full"></div>
+						{/* Technical Icons */}
+						<div className="absolute right-0 top-10 w-24 h-24 opacity-10">
+							<img src="/programming-svgrepo-com.svg" alt="Programming" className="w-full h-full" />
+						</div>
+						<div className="absolute left-0 bottom-10 w-24 h-24 opacity-10">
+							<img src="/cog-svgrepo-com.svg" alt="Cog" className="w-full h-full" />
+						</div>
+						<div className="lg:text-center relative">
+							<div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-blue-600 to-red-600 rounded-full"></div>
 							<h2 className="text-base text-blue-600 font-semibold tracking-wide uppercase">Our Team</h2>
 							<p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
 								Meet Our Amazing Team
@@ -203,7 +308,7 @@ export default function Landing({ teamMembers, achievements }) {
 									}
 									.slick-prev:before, 
 									.slick-next:before {
-										color: #3b82f6; /* blue-600 */
+										color: #3b82f6;
 										font-size: 24px;
 									}
 									.slick-prev {
@@ -217,6 +322,32 @@ export default function Landing({ teamMembers, achievements }) {
 									}
 									.slick-dots li.slick-active button:before {
 										color: #3b82f6;
+									}
+									.team-card {
+										position: relative;
+										transition: all 0.3s ease;
+									}
+									.team-card:hover {
+										transform: translateY(-5px);
+									}
+									.team-card::before {
+										content: '';
+										position: absolute;
+										top: 0;
+										left: 0;
+										right: 0;
+										bottom: 0;
+										border: 2px solid transparent;
+										border-radius: 0.5rem;
+										background: linear-gradient(45deg, #3b82f6, #8b5cf6) border-box;
+										-webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+										-webkit-mask-composite: destination-out;
+										mask-composite: exclude;
+										opacity: 0;
+										transition: opacity 0.3s ease;
+									}
+									.team-card:hover::before {
+										opacity: 1;
 									}
 								`}</style>
 
@@ -247,17 +378,18 @@ export default function Landing({ teamMembers, achievements }) {
 								>
 									{teamMembers?.map((member) => (
 										<div key={member.id} className="px-2">
-											<div className="bg-gray-50 rounded-lg shadow-lg overflow-hidden h-full">
+											<div className="team-card bg-gray-50 rounded-lg shadow-lg overflow-hidden h-full">
 												<div className="px-6 py-8">
-													<div className="h-32 w-32 rounded-full mx-auto mb-4 overflow-hidden">
+													<div className="relative h-32 w-32 mx-auto mb-4">
+														<div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full opacity-20 animate-pulse"></div>
 														{member.image_path ? (
 															<img
 																src={`/storage/${member.image_path}`}
 																alt={member.name}
-																className="h-full w-full object-cover"
+																className="h-full w-full object-cover rounded-full relative z-10"
 															/>
 														) : (
-															<div className="h-full w-full bg-blue-200 flex items-center justify-center">
+															<div className="h-full w-full bg-blue-200 flex items-center justify-center rounded-full relative z-10">
 																<span className="text-blue-600 text-2xl font-bold">
 																	{member.name.charAt(0)}
 																</span>
@@ -280,10 +412,17 @@ export default function Landing({ teamMembers, achievements }) {
 				</div>
 
 				{/* Achievements Section */}
-				<div id="achievements" className="py-12">
+				<div id="achievements" className="py-12 relative">
 					<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-					<div className="lg:text-center relative">
-						<div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-blue-600 to-red-600 rounded-full"></div>
+						{/* Technical Icons */}
+						<div className="absolute right-0 top-10 w-24 h-24 opacity-10">
+							<img src="/electronics-chip-svgrepo-com.svg" alt="Electronics" className="w-full h-full" />
+						</div>
+						<div className="absolute left-0 bottom-10 w-24 h-24 opacity-10">
+							<img src="/arduino-svgrepo-com.svg" alt="Arduino" className="w-full h-full" />
+						</div>
+						<div className="lg:text-center relative">
+							<div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-blue-600 to-red-600 rounded-full"></div>
 							<h2 className="text-base text-blue-600 font-semibold tracking-wide uppercase">Achievements</h2>
 							<p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
 								Our Success Stories
@@ -293,34 +432,51 @@ export default function Landing({ teamMembers, achievements }) {
 						<div className="mt-10">
 							<div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
 								{achievements?.map((achievement) => (
-									<div key={achievement.id} className="bg-white rounded-lg shadow-lg overflow-hidden">
-										{achievement.image_path && (
-											<div className="h-48 w-full">
-												<img
-													src={`/storage/${achievement.image_path}`}
-													alt={achievement.title}
-													className="w-full h-full object-cover"
-												/>
-											</div>
-										)}
-										<div className="p-6">
-											<div className="text-blue-600 text-sm font-semibold mb-2">
-												{new Date(achievement.achievement_date).toLocaleDateString()}
-											</div>
-											<h3 className="text-lg font-medium text-gray-900 mb-2">{achievement.title}</h3>
-											{achievement.competition_name && (
-												<p className="text-sm text-gray-600 mb-2">
-													Competition: {achievement.competition_name}
-												</p>
+									<div key={achievement.id} className="group relative">
+										<div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg blur opacity-0 group-hover:opacity-25 transition duration-1000 group-hover:duration-200"></div>
+										<div className="relative bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 group-hover:-translate-y-1">
+											{achievement.image_path && (
+												<div className="relative h-48 w-full overflow-hidden">
+													<div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10"></div>
+													<img
+														src={`/storage/${achievement.image_path}`}
+														alt={achievement.title}
+														className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110"
+													/>
+												</div>
 											)}
-											{achievement.position && (
-												<p className="text-sm text-gray-600 mb-2">
-													Position: {achievement.position}
+											<div className="p-6">
+												<div className="flex items-center justify-between mb-2">
+													<div className="text-blue-600 text-sm font-semibold">
+														{new Date(achievement.achievement_date).toLocaleDateString()}
+													</div>
+													<div className="text-yellow-500">
+														<svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+															<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+														</svg>
+													</div>
+												</div>
+												<h3 className="text-lg font-medium text-gray-900 mb-2">{achievement.title}</h3>
+												{achievement.competition_name && (
+													<p className="text-sm text-gray-600 mb-2 flex items-center">
+														<svg className="w-4 h-4 mr-1 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+															<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+														</svg>
+														{achievement.competition_name}
+													</p>
+												)}
+												{achievement.position && (
+													<p className="text-sm text-gray-600 mb-2 flex items-center">
+														<svg className="w-4 h-4 mr-1 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+															<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+														</svg>
+														{achievement.position}
+													</p>
+												)}
+												<p className="text-gray-500">
+													{achievement.description}
 												</p>
-											)}
-											<p className="text-gray-500">
-												{achievement.description}
-											</p>
+											</div>
 										</div>
 									</div>
 								))}
@@ -330,10 +486,17 @@ export default function Landing({ teamMembers, achievements }) {
 				</div>
 
 				{/* Gallery Section */}
-				<div id="gallery" className="py-12">
+				<div id="gallery" className="py-12 relative">
 					<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-					<div className="lg:text-center relative">
-						<div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-blue-600 to-red-600 rounded-full"></div>
+						{/* Technical Icons */}
+						<div className="absolute right-0 top-10 w-24 h-24 opacity-10">
+							<img src="/cog-svgrepo-com.svg" alt="Cog" className="w-full h-full" />
+						</div>
+						<div className="absolute left-0 bottom-10 w-24 h-24 opacity-10">
+							<img src="/programming-svgrepo-com.svg" alt="Programming" className="w-full h-full" />
+						</div>
+						<div className="lg:text-center relative">
+							<div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-blue-600 to-red-600 rounded-full"></div>
 							<h2 className="text-base text-blue-600 font-semibold tracking-wide uppercase">Gallery</h2>
 							<p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
 								Our Moments
@@ -341,10 +504,24 @@ export default function Landing({ teamMembers, achievements }) {
 						</div>
 
 						<div className="mt-10">
-							<div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-								{[1, 2, 3, 4, 5, 6, 7, 8].map((image) => (
-									<div key={image} className="aspect-w-1 aspect-h-1">
-										<div className="w-full h-48 bg-gray-200 rounded-lg"></div>
+							<div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4">
+								{galleries?.map((gallery) => (
+									<div key={gallery.id} className="break-inside-avoid group relative">
+										<div className="w-full bg-gray-200 rounded-lg overflow-hidden">
+											<img
+												src={`/storage/${gallery.image_path}`}
+												alt={gallery.title}
+												className="w-full object-cover transform transition-transform duration-500 group-hover:scale-110"
+											/>
+											<div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
+												<div className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center p-4">
+													<h3 className="text-lg font-semibold mb-2">{gallery.title}</h3>
+													{gallery.description && (
+														<p className="text-sm">{gallery.description}</p>
+													)}
+												</div>
+											</div>
+										</div>
 									</div>
 								))}
 							</div>
