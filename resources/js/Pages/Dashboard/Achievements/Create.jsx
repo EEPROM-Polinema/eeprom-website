@@ -1,5 +1,10 @@
 import { Head, useForm, Link } from '@inertiajs/react';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
+import InputError from '@/Components/InputError';
+import InputLabel from '@/Components/InputLabel';
+import TextInput from '@/Components/TextInput';
+import TextArea from '@/Components/TextArea';
+import PrimaryButton from '@/Components/PrimaryButton';
 import { useState } from 'react';
 
 export default function Create({ auth }) {
@@ -34,147 +39,126 @@ export default function Create({ auth }) {
     return (
         <AuthenticatedLayout
             user={auth.user}
-            header={
-                <h2 className="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
-                    Add New Achievement
-                </h2>
-            }
+            header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Add New Achievement</h2>}
         >
             <Head title="Create Achievement" />
 
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div className="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                        <div className="p-6">
+                    <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                        <div className="p-6 text-gray-900">
                             <form onSubmit={handleSubmit} className="space-y-6">
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                                        Title
-                                    </label>
-                                    <input
+                                    <InputLabel htmlFor="title" value="Title" />
+                                    <TextInput
+                                        id="title"
                                         type="text"
+                                        name="title"
                                         value={data.title}
+                                        className="mt-1 block w-full"
                                         onChange={(e) => setData('title', e.target.value)}
-                                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                                         required
                                     />
-                                    {errors.title && (
-                                        <p className="mt-1 text-sm text-red-600">{errors.title}</p>
-                                    )}
+                                    <InputError message={errors.title} className="mt-2" />
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                                        Description
-                                    </label>
-                                    <textarea
+                                    <InputLabel htmlFor="description" value="Description" />
+                                    <TextArea
+                                        id="description"
+                                        name="description"
                                         value={data.description}
+                                        className="mt-1 block w-full"
                                         onChange={(e) => setData('description', e.target.value)}
-                                        rows="4"
-                                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                                         required
                                     />
-                                    {errors.description && (
-                                        <p className="mt-1 text-sm text-red-600">{errors.description}</p>
-                                    )}
+                                    <InputError message={errors.description} className="mt-2" />
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                                        Image
-                                    </label>
+                                    <InputLabel htmlFor="image" value="Image" />
                                     <input
                                         type="file"
-                                        accept="image/*"
-                                        onChange={handleImageChange}
+                                        id="image"
+                                        name="image"
                                         className="mt-1 block w-full"
+                                        onChange={handleImageChange}
+                                        accept="image/*"
+                                        required
                                     />
-                                    {errors.image && (
-                                        <p className="mt-1 text-sm text-red-600">{errors.image}</p>
-                                    )}
+                                    <InputError message={errors.image} className="mt-2" />
                                     {imagePreview && (
                                         <div className="mt-2">
                                             <img
                                                 src={imagePreview}
                                                 alt="Preview"
-                                                className="h-32 w-32 object-cover rounded-md"
+                                                className="w-48 h-48 object-cover rounded-lg"
                                             />
                                         </div>
                                     )}
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                                        Achievement Date
-                                    </label>
-                                    <input
+                                    <InputLabel htmlFor="achievement_date" value="Achievement Date" />
+                                    <TextInput
+                                        id="achievement_date"
                                         type="date"
+                                        name="achievement_date"
                                         value={data.achievement_date}
+                                        className="mt-1 block w-full"
                                         onChange={(e) => setData('achievement_date', e.target.value)}
-                                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                                         required
                                     />
-                                    {errors.achievement_date && (
-                                        <p className="mt-1 text-sm text-red-600">{errors.achievement_date}</p>
-                                    )}
+                                    <InputError message={errors.achievement_date} className="mt-2" />
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                                        Competition Name
-                                    </label>
-                                    <input
+                                    <InputLabel htmlFor="competition_name" value="Competition Name" />
+                                    <TextInput
+                                        id="competition_name"
                                         type="text"
+                                        name="competition_name"
                                         value={data.competition_name}
+                                        className="mt-1 block w-full"
                                         onChange={(e) => setData('competition_name', e.target.value)}
-                                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                                     />
-                                    {errors.competition_name && (
-                                        <p className="mt-1 text-sm text-red-600">{errors.competition_name}</p>
-                                    )}
+                                    <InputError message={errors.competition_name} className="mt-2" />
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                                        Position
-                                    </label>
-                                    <input
+                                    <InputLabel htmlFor="position" value="Position" />
+                                    <TextInput
+                                        id="position"
                                         type="text"
+                                        name="position"
                                         value={data.position}
+                                        className="mt-1 block w-full"
                                         onChange={(e) => setData('position', e.target.value)}
-                                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                                     />
-                                    {errors.position && (
-                                        <p className="mt-1 text-sm text-red-600">{errors.position}</p>
-                                    )}
+                                    <InputError message={errors.position} className="mt-2" />
                                 </div>
 
                                 <div className="flex items-center">
                                     <input
                                         type="checkbox"
+                                        id="is_published"
                                         checked={data.is_published}
                                         onChange={(e) => setData('is_published', e.target.checked)}
                                         className="rounded border-gray-300 text-blue-600 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                                     />
-                                    <label className="ml-2 block text-sm text-gray-700 dark:text-gray-300">
-                                        Published
-                                    </label>
+                                    <InputLabel htmlFor="is_published" value="Published" className="ml-2" />
                                 </div>
 
-                                <div className="flex justify-end space-x-4">
+                                <div className="flex items-center justify-end">
                                     <Link
                                         href={route('achievements.index')}
                                         className="px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700"
                                     >
                                         Cancel
                                     </Link>
-                                    <button
-                                        type="submit"
-                                        disabled={processing}
-                                        className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:opacity-50"
-                                    >
+                                    <PrimaryButton className="ml-4" disabled={processing}>
                                         Create Achievement
-                                    </button>
+                                    </PrimaryButton>
                                 </div>
                             </form>
                         </div>

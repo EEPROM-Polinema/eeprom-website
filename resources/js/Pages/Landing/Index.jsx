@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-export default function Landing({ teamMembers, achievements }) {
+export default function Landing({ teamMembers, achievements, galleries }) {
 	const scrollToSection = (e, sectionId) => {
 		e.preventDefault();
 		const element = document.getElementById(sectionId);
@@ -16,7 +16,7 @@ export default function Landing({ teamMembers, achievements }) {
 	};
 
 	return (
-		<div className="min-h-screen bg-gray-50 flex flex-col">
+		<div className="min-h-screen bg-gray-50 flex flex-col overflow-hidden">
 			<Head title="Home | EEPROM" />
 			{/* Technical Background Pattern */}
 			<div className="fixed inset-0 pointer-events-none opacity-5">
@@ -158,10 +158,10 @@ export default function Landing({ teamMembers, achievements }) {
 				<div id="visi-misi" className="py-12 relative">
 					<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 						{/* Technical Icons */}
-						<div className="absolute -right-10 top-10 w-24 h-24 opacity-10">
+						<div className="absolute right-0 top-10 w-24 h-24 opacity-10">
 							<img src="/arduino-svgrepo-com.svg" alt="Arduino" className="w-full h-full" />
 						</div>
-						<div className="absolute -left-10 bottom-10 w-24 h-24 opacity-10">
+						<div className="absolute left-0 bottom-10 w-24 h-24 opacity-10">
 							<img src="/electronics-chip-svgrepo-com.svg" alt="Electronics" className="w-full h-full" />
 						</div>
 						<div className="lg:text-center relative">
@@ -280,10 +280,10 @@ export default function Landing({ teamMembers, achievements }) {
 				<div id="team" className="py-12 relative">
 					<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 						{/* Technical Icons */}
-						<div className="absolute -right-10 top-10 w-24 h-24 opacity-10">
+						<div className="absolute right-0 top-10 w-24 h-24 opacity-10">
 							<img src="/programming-svgrepo-com.svg" alt="Programming" className="w-full h-full" />
 						</div>
-						<div className="absolute -left-10 bottom-10 w-24 h-24 opacity-10">
+						<div className="absolute left-0 bottom-10 w-24 h-24 opacity-10">
 							<img src="/cog-svgrepo-com.svg" alt="Cog" className="w-full h-full" />
 						</div>
 						<div className="lg:text-center relative">
@@ -415,10 +415,10 @@ export default function Landing({ teamMembers, achievements }) {
 				<div id="achievements" className="py-12 relative">
 					<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 						{/* Technical Icons */}
-						<div className="absolute -right-10 top-10 w-24 h-24 opacity-10">
+						<div className="absolute right-0 top-10 w-24 h-24 opacity-10">
 							<img src="/electronics-chip-svgrepo-com.svg" alt="Electronics" className="w-full h-full" />
 						</div>
-						<div className="absolute -left-10 bottom-10 w-24 h-24 opacity-10">
+						<div className="absolute left-0 bottom-10 w-24 h-24 opacity-10">
 							<img src="/arduino-svgrepo-com.svg" alt="Arduino" className="w-full h-full" />
 						</div>
 						<div className="lg:text-center relative">
@@ -489,10 +489,10 @@ export default function Landing({ teamMembers, achievements }) {
 				<div id="gallery" className="py-12 relative">
 					<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 						{/* Technical Icons */}
-						<div className="absolute -right-10 top-10 w-24 h-24 opacity-10">
+						<div className="absolute right-0 top-10 w-24 h-24 opacity-10">
 							<img src="/cog-svgrepo-com.svg" alt="Cog" className="w-full h-full" />
 						</div>
-						<div className="absolute -left-10 bottom-10 w-24 h-24 opacity-10">
+						<div className="absolute left-0 bottom-10 w-24 h-24 opacity-10">
 							<img src="/programming-svgrepo-com.svg" alt="Programming" className="w-full h-full" />
 						</div>
 						<div className="lg:text-center relative">
@@ -504,10 +504,24 @@ export default function Landing({ teamMembers, achievements }) {
 						</div>
 
 						<div className="mt-10">
-							<div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-								{[1, 2, 3, 4, 5, 6, 7, 8].map((image) => (
-									<div key={image} className="aspect-w-1 aspect-h-1">
-										<div className="w-full h-48 bg-gray-200 rounded-lg"></div>
+							<div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4">
+								{galleries?.map((gallery) => (
+									<div key={gallery.id} className="break-inside-avoid group relative">
+										<div className="w-full bg-gray-200 rounded-lg overflow-hidden">
+											<img
+												src={`/storage/${gallery.image_path}`}
+												alt={gallery.title}
+												className="w-full object-cover transform transition-transform duration-500 group-hover:scale-110"
+											/>
+											<div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
+												<div className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center p-4">
+													<h3 className="text-lg font-semibold mb-2">{gallery.title}</h3>
+													{gallery.description && (
+														<p className="text-sm">{gallery.description}</p>
+													)}
+												</div>
+											</div>
+										</div>
 									</div>
 								))}
 							</div>
