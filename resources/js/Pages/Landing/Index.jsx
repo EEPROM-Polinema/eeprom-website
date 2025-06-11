@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-export default function Landing({ teamMembers, achievements, galleries }) {
+export default function Landing({ teamMembers, achievements, galleries, contact }) {
 	const scrollToSection = (e, sectionId) => {
 		e.preventDefault();
 		const element = document.getElementById(sectionId);
@@ -188,8 +188,7 @@ export default function Landing({ teamMembers, achievements, galleries }) {
 										</div>
 										<h3 className="text-2xl font-bold text-blue-600 mb-4">Our Vision</h3>
 										<p className="text-gray-600">
-											Menjadi komunitas robotika yang unggul dan terdepan dalam pengembangan teknologi robotika di Indonesia, 
-											serta menghasilkan talenta-talenta yang berkualitas dalam bidang robotika dan teknologi.
+											Visi Komunitas EEPROM adalah menjadikan komunitas robotik sebagai pusat perkembangan teknologi dan peningkatan kualitas sumber daya manusia dalam bidang robotik.
 										</p>
 									</div>
 								</div>
@@ -206,11 +205,10 @@ export default function Landing({ teamMembers, achievements, galleries }) {
 										<h3 className="text-2xl font-bold text-blue-600 mb-4">Our Mission</h3>
 										<ol className="list-none space-y-2">
 											{[
-												"Mengembangkan kompetensi anggota dalam bidang robotika dan teknologi",
-												"Menciptakan lingkungan belajar yang kolaboratif dan inovatif",
-												"Berpartisipasi aktif dalam kompetisi robotika nasional dan internasional",
-												"Mengembangkan proyek-proyek robotika yang bermanfaat bagi masyarakat",
-												"Membangun jaringan dengan komunitas robotika lainnya"
+												"Meningkatkan rasa kerja sama di dalam komunitas.",
+												"Dapat mengikuti era globalisasi dunia robotika.",
+												"Menerapkan teknologi dalam bidang robotika untuk menjadikan masyarakat modern.",
+												"Mampu mengikuti perlombaan internasional"
 											].map((item, index) => (
 												<li key={index} className="flex items-start">
 													<span className="flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full bg-blue-100 text-blue-600 mr-2">
@@ -256,20 +254,40 @@ export default function Landing({ teamMembers, achievements, galleries }) {
 								</div>
 								{/* Makna Text */}
 								<div className="lg:w-1/2 mt-8 lg:mt-0">
-									<ul className="space-y-6">
-										<li className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-orange-600">
-											<strong className="text-orange-600 text-lg block mb-2">Lambang Roda Gigi</strong>
-											<p className="text-gray-700">Simbol keberanian dan semangat juang tinggi dalam menghadapi tantangan dan inovasi di bidang robotika.</p>
-										</li>
-										<li className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-blue-600">
-											<strong className="text-blue-600 text-lg block mb-2">Huruf "e"</strong>
-											<p className="text-gray-700">Mewakili intelektualitas dan stabilitas dalam berpikir, mencerminkan pendekatan sistematis dan profesional dalam pengembangan teknologi.</p>
-										</li>
-										<li className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-yellow-500">
-											<strong className="text-yellow-500 text-lg block mb-2">Lambang Tugu Kota Malang</strong>
-											<p className="text-gray-700">Identitas lokal dan kebanggaan terhadap kota Malang, menunjukkan akar dan komitmen kami terhadap pengembangan teknologi di daerah.</p>
-										</li>
-									</ul>
+								  <ul className="space-y-6">
+								    {/* Huruf "e" */}
+								    <li className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-blue-600">
+								      <div className="text-left">
+								        <h3 className="text-blue-600 text-lg font-semibold mb-2">Huruf "e"</h3>
+								        <p className="text-gray-700">Melambangkan elektro.</p>
+								      </div>
+								    </li>
+
+								    {/* Tugu */}
+								    <li className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-yellow-500">
+								      <div className="text-left">
+								        <h3 className="text-yellow-500 text-lg font-semibold mb-2">Tugu</h3>
+								        <p className="text-gray-700">Melambangkan kota saat ini yaitu Malang.</p>
+								      </div>
+								    </li>
+
+								    {/* Roda Gigi */}
+								    <li className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-orange-600">
+								      <div className="text-left">
+								        <h3 className="text-orange-600 text-lg font-semibold mb-2">Roda Gigi</h3>
+								        <p className="text-gray-700">Melambangkan kode teknik.</p>
+								      </div>
+								    </li>
+
+								    {/* Makna Umum */}
+								    <li className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-gray-600">
+								      <div className="text-left">
+								        <p className="text-gray-700">
+								          Makna secara umum dapat diartikan sebagai sebuah komunitas belajar tentang elektro yang terdapat di Teknik Elektro POLINEMA kota Malang.
+								        </p>
+								      </div>
+								    </li>
+								  </ul>
 								</div>
 							</div>
 						</div>
@@ -428,7 +446,7 @@ export default function Landing({ teamMembers, achievements, galleries }) {
 								Our Success Stories
 							</p>
 							<p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-							From regional champions to national innovators, our team has consistently pushed the boundaries of robotics excellence.
+								From champions to innovators, our team has consistently pushed the boundaries of robotics excellence.
 							</p>
 						</div>
 										
@@ -562,11 +580,46 @@ export default function Landing({ teamMembers, achievements, galleries }) {
 						</div>
 						<div>
 							<h3 className="text-lg font-semibold mb-4">Contact</h3>
-							<ul className="space-y-2 text-gray-300">
-								<li>Email: eeprom@polinema.ac.id</li>
-								<li>Phone: +62 XXX-XXXX-XXXX</li>
-								<li>Address: Politeknik Negeri Malang</li>
+							<ul className="space-y-4 text-gray-300">
+								{contact?.email && (
+									<li className="flex items-center space-x-3">
+										<svg className="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+											<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+										</svg>
+										<a href={`mailto:${contact.email}`} className="hover:text-white transition-colors duration-200">{contact.email}</a>
+									</li>
+								)}
+								{contact?.whatsapp_number && (
+									<li className="flex items-center space-x-3">
+										<svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 24 24">
+											<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+										</svg>
+										<a href={`https://wa.me/${contact.whatsapp_number}`} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-200">
+											<span className="font-semibold">{contact.whatsapp_name || 'Contact Us'}</span>
+											<span className="text-gray-300"> ({contact.whatsapp_number})</span>
+										</a>
+									</li>
+								)}
+								<li className="flex items-center space-x-3">
+									<svg className="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+										<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+										<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+									</svg>
+									<span>Gedung AL POLINEMA</span>
+								</li>
 							</ul>
+							<div className="mt-4">
+								<iframe 
+									src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d538.6449486753755!2d112.61460487335965!3d-7.945436729665192!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7883003dd47a6d%3A0x869957f7f4ec8059!2sEEPROM%20Polinema!5e0!3m2!1sen!2sid!4v1749624570194!5m2!1sen!2sid" 
+									width="100%" 
+									height="200" 
+									style={{ border: 0 }} 
+									allowFullScreen="" 
+									loading="lazy" 
+									referrerPolicy="no-referrer-when-downgrade"
+									className="rounded-lg shadow-lg"
+								></iframe>
+							</div>
 						</div>
 						<div>
 							<h3 className="text-lg font-semibold mb-4">Follow Us</h3>

@@ -256,6 +256,27 @@ export default function AuthenticatedLayout({ header, children }) {
                                     </svg>
                                     Gallery
                                 </NavLink>
+
+                                <NavLink
+                                    href={route('contact.index')}
+                                    active={route().current('contact.*')}
+                                    className="group flex items-center px-2 py-2 text-sm font-medium rounded-md text-gray-600 hover:bg-gray-50 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white block"
+                                >
+                                    <svg
+                                        className="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-gray-300"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth="2"
+                                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                                        />
+                                    </svg>
+                                    Contact Information
+                                </NavLink>
                             </nav>
                         </div>
                     </div>
