@@ -1,16 +1,24 @@
 // create.jsx
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, useForm, Link } from '@inertiajs/react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-export default function Create() {
+export default function Create({ teamMembers = [] }) {
     const [imagePreview, setImagePreview] = useState(null);
+    
+    // Calculate next order value
+    const getNextOrder = () => {
+        if (teamMembers.length === 0) return 1;
+        const maxOrder = Math.max(...teamMembers.map(member => member.order || 0));
+        return maxOrder + 1;
+    };
+
     const { data, setData, post, processing, errors } = useForm({
         name: '',
         position: '',
         description: '',
         image: null,
-        order: 0,
+        order: getNextOrder(),
         is_active: true,
     });
 
@@ -121,14 +129,18 @@ export default function Create() {
 
                                     <div>
                                         <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                                            Order
+                                            Display Order
                                         </label>
                                         <input
                                             type="number"
                                             value={data.order}
-                                            onChange={(e) => setData('order', e.target.value)}
+                                            onChange={(e) => setData('order', parseInt(e.target.value) || 0)}
+                                            min="1"
                                             className={`mt-1 block w-full rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white ${errors.order ? 'border-red-500' : ''}`}
                                         />
+                                        <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
+                                            Lower numbers appear first.
+                                        </p>
                                         {errors.order && (
                                             <p className="mt-1 text-sm text-red-600 dark:text-red-500">{errors.order}</p>
                                         )}

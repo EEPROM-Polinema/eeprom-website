@@ -38,7 +38,7 @@ class TeamMemberController extends Controller
             'position' => 'required|string|max:255',
             'description' => 'nullable|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'order' => 'nullable|integer',
+            'order' => 'required|integer|min:1|unique:team_members,order',
             'is_active' => 'boolean'
         ]);
 
@@ -81,7 +81,7 @@ class TeamMemberController extends Controller
             'position' => 'required|string|max:255',
             'description' => 'nullable|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'order' => 'nullable|integer',
+            'order' => 'required|integer|min:1|unique:team_members,order,' . $teamMember->id,
             'is_active' => 'boolean'
         ]);
 
