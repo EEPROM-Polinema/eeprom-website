@@ -17,7 +17,7 @@ export default function Landing({ teamMembers, achievements, galleries, contact 
 
 	return (
 		<div className="min-h-screen bg-gray-50 flex flex-col overflow-hidden">
-			<Head title="Home | EEPROM" />
+			<Head title="EEPROM Polinema" />
 			{/* Technical Background Pattern */}
 			<div className="fixed inset-0 pointer-events-none opacity-5">
 				<div className="absolute inset-0" style={{
@@ -565,7 +565,7 @@ export default function Landing({ teamMembers, achievements, galleries, contact 
 								alt="EEPROM Logo"
 							/>
 							<p className="text-gray-300 text-sm">
-								EEPROM Polinema - Robotics Community
+								Electronic Education and Programming Robotic of Malang.
 							</p>
 						</div>
 						<div>
