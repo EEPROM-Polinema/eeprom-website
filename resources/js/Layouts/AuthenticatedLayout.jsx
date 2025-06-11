@@ -10,7 +10,7 @@ export default function AuthenticatedLayout({ header, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
 
     return (
-        <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
+        <div className="min-h-screen bg-gray-100 dark:bg-gray-900 flex flex-col">
             <nav className="border-b border-gray-100 bg-white dark:border-gray-700 dark:bg-gray-800">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="flex h-16 justify-between">
@@ -167,11 +167,11 @@ export default function AuthenticatedLayout({ header, children }) {
                 </div>
             </nav>
 
-            <div className="flex">
+            <div className="flex flex-1">
                 {/* Sidebar */}
                 <div className="hidden md:flex md:w-64 md:flex-col">
-                    <div className="flex h-screen flex-col border-r border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800">
-                        <div className="flex flex-col overflow-y-auto pt-5 pb-4">
+                    <div className="flex flex-col flex-1 border-r border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800">
+                        <div className="flex flex-col flex-1 overflow-y-auto pt-5 pb-4">
                             <nav className="mt-5 flex-1 flex flex-col space-y-1 px-2">
                                 <NavLink
                                     href={route('dashboard')}
