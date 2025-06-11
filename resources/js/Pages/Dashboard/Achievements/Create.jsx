@@ -1,4 +1,3 @@
-// create.jsx
 import { Head, useForm, Link } from '@inertiajs/react';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { useState } from 'react';
@@ -132,7 +131,7 @@ export default function Create({ auth }) {
 
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                                        Image <span className="text-red-500">*</span>
+                                        Image
                                     </label>
                                     <div className="mt-1 flex items-center">
                                         <label className="cursor-pointer">
@@ -144,7 +143,6 @@ export default function Create({ auth }) {
                                                 accept="image/*"
                                                 onChange={handleImageChange}
                                                 className="sr-only"
-                                                required
                                             />
                                         </label>
                                         <span className="ml-2 text-sm text-gray-500 dark:text-gray-400">

@@ -1,14 +1,11 @@
-// edit.jsx
 import { Head, useForm, Link } from '@inertiajs/react';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { useState } from 'react';
 
 export default function Edit({ auth, achievement }) {
-    const [imagePreview, setImagePreview] = useState(
-        achievement.image_path ? `/storage/${achievement.image_path}` : null
-    );
+    const [imagePreview, setImagePreview] = useState(null);
     
-    const { data, setData, put, processing, errors } = useForm({
+    const { data, setData, post, processing, errors } = useForm({
         title: achievement.title,
         description: achievement.description,
         image: null,
@@ -21,7 +18,7 @@ export default function Edit({ auth, achievement }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        put(route('achievements.update', achievement.id));
+        post(route('achievements.update', achievement.id));
     };
 
     const handleImageChange = (e) => {
