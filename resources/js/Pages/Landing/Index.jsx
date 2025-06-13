@@ -317,57 +317,21 @@ export default function Landing({ teamMembers, achievements, galleries, contact 
 
 						<div className="mt-10">
 							<div className="relative px-8">
-								<style jsx global>{`
-									.slick-slide {
-										padding: 0 10px;
-									}
-									.slick-list {
-										margin: 0 -10px;
-									}
-									.slick-prev:before, 
-									.slick-next:before {
-										color: #3b82f6;
-										font-size: 24px;
-									}
-									.slick-prev {
-										left: -30px;
-									}
-									.slick-next {
-										right: -30px;
-									}
-									.slick-dots li button:before {
-										color: #3b82f6;
-									}
-									.slick-dots li.slick-active button:before {
-										color: #3b82f6;
-									}
-									.team-card {
-										position: relative;
-										transition: all 0.3s ease;
-									}
-									.team-card:hover {
-										transform: translateY(-5px);
-									}
-									.team-card::before {
-										content: '';
-										position: absolute;
-										top: 0;
-										left: 0;
-										right: 0;
-										bottom: 0;
-										border: 2px solid transparent;
-										border-radius: 0.5rem;
-										background: linear-gradient(45deg, #3b82f6, #8b5cf6) border-box;
-										-webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-										-webkit-mask-composite: destination-out;
-										mask-composite: exclude;
-										opacity: 0;
-										transition: opacity 0.3s ease;
-									}
-									.team-card:hover::before {
-										opacity: 1;
-									}
-								`}</style>
+							<style jsx global>{`
+							  .team-card {
+							    position: relative;
+							    transition: all 0.3s ease;
+							    margin-top: 10px;
+							    margin-bottom: 5px;
+							    border: 2px solid transparent;
+							  }
+							  .team-card:hover {
+							    transform: translateY(-5px);
+							    border-color: #3b82f6;
+							    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 
+							                0 4px 6px -2px rgba(59, 130, 246, 0.1);
+							  }
+							`}</style>
 
 								<Slider
 									dots={true}
@@ -397,7 +361,7 @@ export default function Landing({ teamMembers, achievements, galleries, contact 
 									{teamMembers?.map((member) => (
 										<div key={member.id} className="px-2">
 											<div className="team-card bg-gray-50 rounded-lg shadow-lg overflow-hidden h-full">
-												<div className="px-6 py-8">
+												<div className="px-6 py-12">
 													<div className="relative h-32 w-32 mx-auto mb-4">
 														<div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full opacity-20 animate-pulse"></div>
 														{member.image_path ? (
