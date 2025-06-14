@@ -58,7 +58,7 @@ export default function Landing({ teamMembers, achievements, galleries, contact 
 				}
 			`}</style>
 			{/* Navbar */}
-			<nav className="bg-white shadow-lg relative z-10" style={{ backgroundColor: '#fffff' }}>
+			<nav className="bg-[#F8F8FF] shadow-lg relative z-10" style={{ backgroundColor: '#fffff' }}>
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="flex justify-between h-20">
 						<div className="flex items-center">
@@ -121,8 +121,8 @@ export default function Landing({ teamMembers, achievements, galleries, contact 
 									<div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
 										<div className="rounded-md shadow relative group">
 											<div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
-											<a href="/register" className="relative w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10">
-												Join Us
+											<a href="#visi-misi" onClick={(e) => scrollToSection(e, 'visi-misi')} className="relative w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10">
+												Learn More
 											</a>
 										</div>
 									</div>
@@ -253,10 +253,10 @@ export default function Landing({ teamMembers, achievements, galleries, contact 
 									</div>
 								</div>
 								{/* Makna Text */}
-								<div className="lg:w-1/2 mt-8 lg:mt-0">
+								<div className="lg:w-1/2 mt-8 lg:mt-0 relative z-10">
 								  <ul className="space-y-6">
 								    {/* Huruf "e" */}
-								    <li className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-blue-600">
+								    <li className="bg-white/95 backdrop-blur-sm p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-blue-600">
 								      <div className="text-left">
 								        <h3 className="text-blue-600 text-lg font-semibold mb-2">Huruf "e"</h3>
 								        <p className="text-gray-700">Melambangkan elektro.</p>
@@ -264,7 +264,7 @@ export default function Landing({ teamMembers, achievements, galleries, contact 
 								    </li>
 
 								    {/* Tugu */}
-								    <li className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-yellow-500">
+								    <li className="bg-white/95 backdrop-blur-sm p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-yellow-500">
 								      <div className="text-left">
 								        <h3 className="text-yellow-500 text-lg font-semibold mb-2">Tugu</h3>
 								        <p className="text-gray-700">Melambangkan kota saat ini yaitu Malang.</p>
@@ -272,7 +272,7 @@ export default function Landing({ teamMembers, achievements, galleries, contact 
 								    </li>
 
 								    {/* Roda Gigi */}
-								    <li className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-orange-600">
+								    <li className="bg-white/95 backdrop-blur-sm p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-orange-600">
 								      <div className="text-left">
 								        <h3 className="text-orange-600 text-lg font-semibold mb-2">Roda Gigi</h3>
 								        <p className="text-gray-700">Melambangkan kode teknik.</p>
@@ -280,7 +280,7 @@ export default function Landing({ teamMembers, achievements, galleries, contact 
 								    </li>
 
 								    {/* Makna Umum */}
-								    <li className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-gray-600">
+								    <li className="bg-white/95 backdrop-blur-sm p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-gray-600">
 								      <div className="text-left">
 								        <p className="text-gray-700">
 								          Makna secara umum dapat diartikan sebagai sebuah komunitas belajar tentang elektro yang terdapat di Teknik Elektro POLINEMA kota Malang.
@@ -296,103 +296,164 @@ export default function Landing({ teamMembers, achievements, galleries, contact 
 
 				{/* Team Section */}
 				<div id="team" className="py-12 relative">
-					<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-						{/* Technical Icons */}
-						<div className="absolute right-0 top-10 w-24 h-24 opacity-10">
-							<img src="/programming-svgrepo-com.svg" alt="Programming" className="w-full h-full" />
-						</div>
-						<div className="absolute left-0 bottom-10 w-24 h-24 opacity-10">
-							<img src="/cog-svgrepo-com.svg" alt="Cog" className="w-full h-full" />
-						</div>
-						<div className="lg:text-center relative">
-							<div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-blue-600 to-red-600 rounded-full"></div>
-							<h2 className="text-base text-blue-600 font-semibold tracking-wide uppercase">Our Team</h2>
-							<p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-								Meet Our Amazing Team
-							</p>
-							<p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-							Dedicated team of robotics enthusiasts and experts who make EEPROM Polinema what it is today. Our active members bring passion, skills, and innovation to drive success in every competition and project.
-							</p>
-						</div>
-
-						<div className="mt-10">
-							<div className="relative px-8">
-							<style jsx global>{`
-							  .team-card {
-							    position: relative;
-							    transition: all 0.3s ease;
-							    margin-top: 10px;
-							    margin-bottom: 5px;
-							    border: 2px solid transparent;
-							  }
-							  .team-card:hover {
-							    transform: translateY(-5px);
-							    border-color: #3b82f6;
-							    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 
-							                0 4px 6px -2px rgba(59, 130, 246, 0.1);
-							  }
-							`}</style>
-
-								<Slider
-									dots={true}
-									infinite={false}
-									speed={500}
-									slidesToShow={Math.min(3, teamMembers?.length || 1)}
-									slidesToScroll={1}
-									autoplay={true}
-									autoplaySpeed={3000}
-									responsive={[
-										{
-											breakpoint: 1024,
-											settings: {
-												slidesToShow: Math.min(2, teamMembers?.length || 1),
-												slidesToScroll: 1,
-											}
-										},
-										{
-											breakpoint: 640,
-											settings: {
-												slidesToShow: 1,
-												slidesToScroll: 1
-											}
-										}
-									]}
-								>
-									{teamMembers?.map((member) => (
-										<div key={member.id} className="px-2">
-											<div className="team-card bg-gray-50 rounded-lg shadow-lg overflow-hidden h-full">
-												<div className="px-6 py-12">
-													<div className="relative h-32 w-32 mx-auto mb-4">
-														<div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full opacity-20 animate-pulse"></div>
-														{member.image_path ? (
-															<img
-																src={`/storage/${member.image_path}`}
-																alt={member.name}
-																className="h-full w-full object-cover rounded-full relative z-10"
-															/>
-														) : (
-															<div className="h-full w-full bg-blue-200 flex items-center justify-center rounded-full relative z-10">
-																<span className="text-blue-600 text-2xl font-bold">
-																	{member.name.charAt(0)}
-																</span>
-															</div>
-														)}
-													</div>
-													<h3 className="text-center text-lg font-medium text-gray-900">{member.name}</h3>
-													<p className="mt-1 text-center text-sm text-blue-600">{member.position}</p>
-													<p className="mt-2 text-center text-gray-500">
-														{member.description}
-													</p>
-												</div>
-											</div>
-										</div>
-									))}
-								</Slider>
-							</div>
-						</div>
-					</div>
+				  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				    {/* Technical Icons */}
+				    <div className="absolute right-0 top-10 w-24 h-24 opacity-10">
+				      <img src="/programming-svgrepo-com.svg" alt="Programming" className="w-full h-full" />
+				    </div>
+				    <div className="absolute left-0 bottom-10 w-24 h-24 opacity-10">
+				      <img src="/cog-svgrepo-com.svg" alt="Cog" className="w-full h-full" />
+				    </div>
+				    <div className="lg:text-center relative">
+				      <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-blue-600 to-red-600 rounded-full"></div>
+				      <h2 className="text-base text-blue-600 font-semibold tracking-wide uppercase">Our Team</h2>
+				      <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+				        Meet Our Amazing Team
+				      </p>
+				      <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+				        Dedicated team of robotics enthusiasts and experts who make EEPROM Polinema what it is today. Our active members bring passion, skills, and innovation to drive success in every competition and project.
+				      </p>
+				    </div>
+														
+				    <div className="mt-10">
+				      <div className="relative px-8">
+				        <style jsx global>{`
+				          .team-card {
+				            position: relative;
+				            transition: all 0.3s ease;
+				            margin-top: 10px;
+				            margin-bottom: 5px;
+				            border: 2px solid transparent;
+				          }
+				          .team-card:hover {
+				            transform: translateY(-5px);
+				            border-color: #3b82f6;
+				            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 
+				                        0 4px 6px -2px rgba(59, 130, 246, 0.1);
+				          }
+				          .slick-prev, .slick-next {
+				            z-index: 10;
+				            width: 40px;
+				            height: 40px;
+				            background: white !important;
+				            border-radius: 50%;
+				            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+				            display: flex !important;
+				            align-items: center;
+				            justify-content: center;
+				          }
+				          .slick-prev:before, .slick-next:before {
+				            display: none;
+				          }
+				          .slick-prev:hover, .slick-next:hover {
+				            background: #3b82f6 !important;
+				          }
+				          .slick-prev:hover svg, .slick-next:hover svg {
+				            stroke: white !important;
+				          }
+				          .slick-prev svg, .slick-next svg {
+				            stroke: #3b82f6 !important;
+				            width: 24px;
+				            height: 24px;
+				          }
+				          .slick-prev {
+				            left: -45px !important;
+				          }
+				          .slick-next {
+				            right: -45px !important;
+				          }
+				          .slick-dots {
+				            bottom: -40px !important;
+				          }
+				          .slick-dots li button:before {
+				            color: #3b82f6 !important;
+				          }
+				          .slick-dots li.slick-active button:before {
+				            color: #3b82f6 !important;
+				          }
+				          @media (max-width: 640px) {
+				            .slick-prev {
+				              left: -15px !important;
+				            }
+				            .slick-next {
+				              right: -15px !important;
+				            }
+				          }
+				        `}</style>
+				
+				        <Slider
+				          dots={true}
+				          infinite={false}
+				          speed={500}
+				          slidesToShow={Math.min(3, teamMembers?.length || 1)}
+				          slidesToScroll={1}
+				          autoplay={false}
+				          responsive={[
+				            {
+				              breakpoint: 1024,
+				              settings: {
+				                slidesToShow: Math.min(2, teamMembers?.length || 1),
+				                slidesToScroll: 1,
+				              }
+				            },
+				            {
+				              breakpoint: 640,
+				              settings: {
+				                slidesToShow: 1,
+				                slidesToScroll: 1
+				              }
+				            }
+				          ]}
+				          prevArrow={
+				            <button className="slick-prev">
+				              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+				                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+				              </svg>
+				            </button>
+				          }
+				          nextArrow={
+				            <button className="slick-next">
+				              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+				                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+				              </svg>
+				            </button>
+				          }
+				        >
+				          {teamMembers?.map((member) => (
+				            <div key={member.id} className="px-2">
+				              <div className="team-card bg-gray-50 rounded-lg shadow-lg overflow-hidden h-full">
+				                <div className="px-6 py-12">
+				                  <div className="relative h-32 w-32 mx-auto mb-4">
+				                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full opacity-20 animate-pulse"></div>
+				                    {member.image_path ? (
+				                      <img
+				                        src={`/storage/${member.image_path}`}
+				                        alt={member.name}
+				                        className="h-full w-full object-cover rounded-full relative z-10"
+				                      />
+				                    ) : (
+				                      <div className="h-full w-full bg-blue-200 flex items-center justify-center rounded-full relative z-10">
+				                        <span className="text-blue-600 text-2xl font-bold">
+				                          {member.name.charAt(0)}
+				                        </span>
+				                      </div>
+				                    )}
+				                  </div>
+				                  <h3 className="text-center text-lg font-medium text-gray-900">{member.name}</h3>
+				                  <p className="mt-1 text-center text-sm text-blue-600">{member.position}</p>
+				                  <p className="mt-2 text-center text-gray-500">
+				                    {member.description}
+				                  </p>
+				                </div>
+				              </div>
+				            </div>
+				          ))}
+				        </Slider>
+				      </div>
+				    </div>
+				  </div>
 				</div>
-
+				
 				{/* Achievements Section */}
 				<div id="achievements" className="py-12 relative">
 					<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
