@@ -100,7 +100,7 @@ export default function Create({ auth }) {
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div>
                                         <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                                            Competition Name
+                                            Competition Name <span className="text-red-500">*</span>
                                         </label>
                                         <input
                                             type="text"
@@ -115,7 +115,7 @@ export default function Create({ auth }) {
 
                                     <div>
                                         <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                                            Position
+                                            Position <span className="text-red-500">*</span>
                                         </label>
                                         <input
                                             type="text"
@@ -131,7 +131,7 @@ export default function Create({ auth }) {
 
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                                        Image
+                                        Image <span className="text-red-500">*</span>
                                     </label>
                                     <div className="mt-1 flex items-center">
                                         <label className="cursor-pointer">

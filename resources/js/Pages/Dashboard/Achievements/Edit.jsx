@@ -102,7 +102,7 @@ export default function Edit({ auth, achievement }) {
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div>
                                         <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                                            Competition Name
+                                            Competition Name <span className="text-red-500">*</span>
                                         </label>
                                         <input
                                             type="text"
@@ -117,7 +117,7 @@ export default function Edit({ auth, achievement }) {
 
                                     <div>
                                         <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                                            Position
+                                            Position <span className="text-red-500">*</span>
                                         </label>
                                         <input
                                             type="text"
@@ -133,7 +133,7 @@ export default function Edit({ auth, achievement }) {
 
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                                        Current Image
+                                        Current Image <span className="text-red-500">*</span>
                                     </label>
                                     <div className="mt-2">
                                         <img
@@ -146,7 +146,7 @@ export default function Edit({ auth, achievement }) {
 
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                                        New Image (optional)
+                                        New Image <span className="text-red-500">*</span>
                                     </label>
                                     <div className="mt-1 flex items-center">
                                         <label className="cursor-pointer">
