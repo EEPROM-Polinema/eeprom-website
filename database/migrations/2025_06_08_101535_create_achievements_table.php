@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('description');
-            $table->string('image_path')->nullable();
+            $table->string('image_path');
             $table->date('achievement_date');
-            $table->string('competition_name')->nullable();
-            $table->string('position')->nullable();
+            $table->string('competition_name');
+            $table->string('position');
             $table->boolean('is_published')->default(true);
             $table->timestamps();
         });
