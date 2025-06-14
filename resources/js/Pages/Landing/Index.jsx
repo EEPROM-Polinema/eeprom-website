@@ -388,19 +388,25 @@ export default function Landing({ teamMembers, achievements, galleries, contact 
 				          slidesToShow={Math.min(3, teamMembers?.length || 1)}
 				          slidesToScroll={1}
 				          autoplay={false}
+				          centerMode={teamMembers?.length < 3}
+				          centerPadding={teamMembers?.length < 3 ? '20%' : '0'}
 				          responsive={[
 				            {
 				              breakpoint: 1024,
 				              settings: {
 				                slidesToShow: Math.min(2, teamMembers?.length || 1),
 				                slidesToScroll: 1,
+				                centerMode: teamMembers?.length < 2,
+				                centerPadding: teamMembers?.length < 2 ? '20%' : '0'
 				              }
 				            },
 				            {
 				              breakpoint: 640,
 				              settings: {
 				                slidesToShow: 1,
-				                slidesToScroll: 1
+				                slidesToScroll: 1,
+				                centerMode: false,
+				                centerPadding: '0'
 				              }
 				            }
 				          ]}
@@ -421,8 +427,8 @@ export default function Landing({ teamMembers, achievements, galleries, contact 
 				        >
 				          {teamMembers?.map((member) => (
 				            <div key={member.id} className="px-2">
-				              <div className="team-card bg-gray-50 rounded-lg shadow-lg overflow-hidden h-full">
-				                <div className="px-6 py-12">
+				              <div className="team-card bg-gray-50 rounded-lg shadow-lg overflow-hidden">
+				                <div className="px-6 py-12 flex flex-col items-center">
 				                  <div className="relative h-32 w-32 mx-auto mb-4">
 				                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full opacity-20 animate-pulse"></div>
 				                    {member.image_path ? (
@@ -432,9 +438,9 @@ export default function Landing({ teamMembers, achievements, galleries, contact 
 				                        className="h-full w-full object-cover rounded-full relative z-10"
 				                      />
 				                    ) : (
-				                      <div className="h-full w-full bg-blue-200 flex items-center justify-center rounded-full relative z-10">
-				                        <span className="text-blue-600 text-2xl font-bold">
-				                          {member.name.charAt(0)}
+				                      <div className="h-full w-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center rounded-full relative z-10">
+				                        <span className="text-white text-4xl font-bold">
+				                          {member.name.split(' ').map(word => word[0]).join('').toUpperCase()}
 				                        </span>
 				                      </div>
 				                    )}
@@ -481,16 +487,22 @@ export default function Landing({ teamMembers, achievements, galleries, contact 
 									<div key={achievement.id} className="group relative">
 										<div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg blur opacity-0 group-hover:opacity-25 transition duration-1000 group-hover:duration-200"></div>
 										<div className="relative bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 group-hover:-translate-y-1">
-											{achievement.image_path && (
-												<div className="relative h-48 w-full overflow-hidden">
-													<div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10"></div>
+											<div className="relative h-48 w-full overflow-hidden">
+												<div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10"></div>
+												{achievement.image_path ? (
 													<img
 														src={`/storage/${achievement.image_path}`}
 														alt={achievement.title}
 														className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110"
 													/>
-												</div>
-											)}
+												) : (
+													<div className="w-full h-full bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
+														<svg className="w-16 h-16 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+															<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+														</svg>
+													</div>
+												)}
+											</div>
 											<div className="p-6">
 												<div className="flex items-center justify-between mb-2">
 													<div className="text-blue-600 text-sm font-semibold">
