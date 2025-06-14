@@ -11,9 +11,8 @@ export default function Edit({ teamMember }) {
     const { data, setData, put, processing, errors } = useForm({
         name: teamMember.name,
         position: teamMember.position,
-        description: teamMember.description,
+        description: teamMember.description || '',
         image: null,
-        order: teamMember.order,
         is_active: teamMember.is_active,
     });
 
@@ -124,25 +123,6 @@ export default function Edit({ teamMember }) {
                                         </div>
                                         {errors.image && (
                                             <p className="mt-1 text-sm text-red-600 dark:text-red-500">{errors.image}</p>
-                                        )}
-                                    </div>
-
-                                    <div>
-                                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                                            Display Order
-                                        </label>
-                                        <input
-                                            type="number"
-                                            value={data.order}
-                                            onChange={(e) => setData('order', parseInt(e.target.value) || 0)}
-                                            min="1"
-                                            className={`mt-1 block w-full rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white ${errors.order ? 'border-red-500' : ''}`}
-                                        />
-                                        <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
-                                            Lower numbers appear first.
-                                        </p>
-                                        {errors.order && (
-                                            <p className="mt-1 text-sm text-red-600 dark:text-red-500">{errors.order}</p>
                                         )}
                                     </div>
                                 </div>

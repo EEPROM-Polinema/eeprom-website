@@ -38,7 +38,6 @@ class TeamMemberController extends Controller
             'position' => 'required|string|max:255',
             'description' => 'nullable|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'order' => 'required|integer|min:1|unique:team_members,order',
             'is_active' => 'boolean'
         ]);
 
@@ -46,6 +45,9 @@ class TeamMemberController extends Controller
             $path = $request->file('image')->store('team-members', 'public');
             $validated['image_path'] = $path;
         }
+
+        // Set the order to be the last position
+        $validated['order'] = TeamMember::max('order') + 1;
 
         TeamMember::create($validated);
 
@@ -113,5 +115,23 @@ class TeamMemberController extends Controller
 
         return redirect()->route('team-members.index')
             ->with('success', 'Team member deleted successfully.');
+    }
+
+    /**
+     * Reorder team members.
+     */
+    public function reorder(Request $request)
+    {
+        $validated = $request->validate([
+            'orders' => 'required|array',
+            'orders.*.id' => 'required|exists:team_members,id',
+            'orders.*.order' => 'required|integer|min:1'
+        ]);
+
+        foreach ($validated['orders'] as $order) {
+            TeamMember::where('id', $order['id'])->update(['order' => $order['order']]);
+        }
+
+        return back()->with('success', 'Team members reordered successfully');
     }
 }

@@ -26,6 +26,7 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('team-members', TeamMemberController::class);
+    Route::post('/team-members/reorder', [TeamMemberController::class, 'reorder'])->name('team-members.reorder');
     Route::resource('achievements', AchievementController::class);
     Route::resource('gallery', GalleryController::class);
     
