@@ -36,10 +36,10 @@ class AchievementController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'achievement_date' => 'required|date',
-            'competition_name' => 'nullable|string|max:255',
-            'position' => 'nullable|string|max:255',
+            'competition_name' => 'required|string|max:255',
+            'position' => 'required|string|max:255',
             'is_published' => 'boolean'
         ]);
 
@@ -80,10 +80,10 @@ class AchievementController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'achievement_date' => 'required|date',
-            'competition_name' => 'nullable|string|max:255',
-            'position' => 'nullable|string|max:255',
+            'competition_name' => 'required|string|max:255',
+            'position' => 'required|string|max:255',
             'is_published' => 'boolean'
         ]);
 
